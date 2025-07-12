@@ -1,0 +1,11 @@
+groups:
+  - name: HumidityAlerts
+    rules:
+      - alert: HighHumidity
+        expr: humidity_percent > 70
+        for: 3m
+        labels:
+          severity: warning
+        annotations:
+          summary: "ESP32 濕度過高"
+          description: "濕度持續超過 70%，目前為 {{ $value }}%"
